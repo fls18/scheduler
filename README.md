@@ -14,8 +14,8 @@
 - [일정 삭제] 버튼을 누르면 해당 일정이 삭제됩니다.
 
 입출력 형태:
-- 별도의 설치나 환경 설정 없이, 소스 코드를 다운로드한 후 실행만 하면 사용할 수 있습니다.
 - python으로만 구성되어 있어 Source Code 다운로드 후 바로 실행 가능합니다.
+- 반드시 todos.json 파일도 함께 다운로드 해주세요.(같은 폴더에 두는 것을 권장합니다)
 
 
 
@@ -36,9 +36,8 @@ Features:
 
 
 Input/Output & Execution:
-- No additional installation or environment setup is required.
-- Just download the source code and run it directly.
-- The system is built entirely with Python, so it can be executed as-is after download.
+- The program is written entirely in Python, so you can run it immediately after downloading the source code.
+- Make sure to also download the todos.json file and place it in the same folder as the source code for proper functionality.
 
 
 ## 사용법 예시
