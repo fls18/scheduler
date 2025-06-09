@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import ttk
 from datetime import date
 import json
 import os
+from collections import defaultdict
 
 DATA_FILE = 'todos.json'
+current_lang = 'kor'  # 기본 언어를 한국어로 고정
 
 def load_todos():
     if os.path.exists(DATA_FILE):
@@ -38,22 +39,43 @@ def delete_todo(index):
     save_todos(todos)
     update_list()
 
+def delete_by_date(date_to_delete):
+    global todos
+    todos = [todo for todo in todos if todo['date'] != date_to_delete]
+    save_todos(todos)
+    update_list()
+
 def update_list():
     for widget in list_frame.winfo_children():
         widget.destroy()
 
+    # 날짜별 그룹화
+    grouped = defaultdict(list)
     for i, todo in enumerate(todos):
-        status = "☑️" if todo['done'] else "⬜"
-        item = f"[{status}] {todo['date']} - {todo['text']}"
-        lbl = tk.Label(list_frame, text=item, anchor="w")
-        lbl.pack(fill="x")
+        grouped[todo['date']].append((i, todo))
 
-        btns = tk.Frame(list_frame)
-        tk.Button(btns, text="완료", command=lambda i=i: toggle_done(i)).pack(side="left")
-        tk.Button(btns, text="일정 삭제", command=lambda i=i: delete_todo(i)).pack(side="left")
-        btns.pack(anchor="w")
+    for date_text in sorted(grouped):
+        date_frame = tk.Frame(list_frame)
+        date_label = tk.Label(date_frame, text=f"{date_text}")
+        date_label.pack(side="left")
 
-# GUI 구성
+        tk.Button(date_frame, 
+                  text="해당 날짜 일정 삭제", 
+                  command=lambda d=date_text: delete_by_date(d)).pack(side="left", padx=5)
+        date_frame.pack(anchor="w", pady=(10, 0))
+
+        for i, todo in grouped[date_text]:
+            status = "☑️" if todo['done'] else "⬜"
+            task_frame = tk.Frame(list_frame)
+            task_label = tk.Label(task_frame, text=f"{status} {todo['text']}", anchor="w")
+            task_label.pack(side="left")
+
+            tk.Button(task_frame, text="완료", command=lambda i=i: toggle_done(i)).pack(side="left", padx=5)
+            tk.Button(task_frame, text="삭제", command=lambda i=i: delete_todo(i)).pack(side="left")
+
+            task_frame.pack(fill="x", anchor="w")
+
+# GUI
 root = tk.Tk()
 root.title("일정 보드")
 
@@ -64,7 +86,9 @@ date_entry = tk.Entry(root, width=20)
 date_entry.insert(0, date.today().isoformat())
 date_entry.pack(pady=5)
 
-tk.Button(root, text="일정 추가", command=add_todo).pack(pady=5)
+btn_frame = tk.Frame(root)
+tk.Button(btn_frame, text="일정 추가", command=add_todo).pack(side="left", padx=5)
+btn_frame.pack(pady=5)
 
 list_frame = tk.Frame(root)
 list_frame.pack(fill="both", expand=True, padx=10, pady=10)
