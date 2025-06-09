@@ -17,7 +17,8 @@
 - python으로만 구성되어 있어 Source Code 다운로드 후 바로 실행 가능합니다.
 - 반드시 todos.json 파일도 함께 다운로드 해주세요.(같은 폴더에 두는 것을 권장합니다)
 
-
+  
+* scheduler.exe 파일을 다운로드 할 경우 todos.json 파일을 다운로드 하지 않아도 괜찮습니다.
 
 
 # English README
@@ -38,6 +39,8 @@ Features:
 Input/Output & Execution:
 - The program is written entirely in Python, so you can run it immediately after downloading the source code.
 - Make sure to also download the todos.json file and place it in the same folder as the source code for proper functionality.
+
+Note: If you download the scheduler.exe file, there's no need to download the todos.json file separately.
 
 
 ## 사용법 예시
