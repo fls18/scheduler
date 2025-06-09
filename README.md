@@ -43,16 +43,16 @@ Input/Output & Execution:
 
 ## 사용법 예시
 프로그램 실행 후 화면 모습은 아래와 같습니다:
-![Usage Screenshot](data/default state.png)
+![Usage Screenshot](image/default state.png)
 
 일정 추가 후:
-![Usage Screenshot](Add schedule.png)
+![Usage Screenshot](image/Add schedule.png)
 
 일정 입력 칸은 화면 상단에 있습니다:
-![Usage Screenshot](Enter schedule.png)
+![Usage Screenshot](image/Enter schedule.png)
 
 입력된 일정은 날짜 순서대로 정렬됩니다:
-![Usage Screenshot](Sorted_Schedule.png)
+![Usage Screenshot](image/Sorted_Schedule.png)
 
 
 
