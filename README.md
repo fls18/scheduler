@@ -6,8 +6,11 @@
 
 상세 기능: 
 - 화면 중앙의 숫자를 수정해 날짜를 조정할 수 있습니다.
+- 일정이 날짜별로 정렬되어 표시됩니다.
 - 상단의 입력칸에 일정을 작성하고 하단의 [일정 추가] 버튼을 누르면 아래에 일정이 추가됩니다.
-- 일정을 수행한 후 완료 버튼을 누르면 완료 표시로 변경된다.
+- 날짜 옆의 일정 일괄 삭제 버튼을 눌러 원하는 날짜의 일정을 한번에 삭제할 수 있습니다.
+- 일정을 수행한 후 완료 버튼을 누르면 완료 표시로 변경됩니다.
+- 완료된 일정의 완료 버튼을 한 번 더 누르면 완료가 취소됩니다.
 - [일정 삭제] 버튼을 누르면 해당 일정이 삭제됩니다.
 
 입출력 형태:
@@ -24,10 +27,12 @@ Purpose:
 To help users easily view and manage personal schedules and to-do lists at a glance.
 
 Features:
-- You can change the date by editing the number displayed in the center of the screen.
-- Enter a task in the input field at the top, then click the [Add Schedule] button to add it below.
-- After completing a task, click the Complete button to mark it as done.
-- Click the [Delete] button to remove the task from the list.
+- You can adjust the date by editing the number displayed at the center of the screen.
+- Tasks are sorted and displayed by their dates.
+- Enter a task in the input field at the top and click the [Add Schedule] button below to add it to the list.
+- Click the "Delete All for Date" button next to the date to remove all tasks for that specific day at once.
+- After completing a task, click the [Complete] button to mark it as done. Clicking it again will undo the completion.
+- Click the [Delete] button to remove a specific task.
 
 
 Input/Output & Execution:
